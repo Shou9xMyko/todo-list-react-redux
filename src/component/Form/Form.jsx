@@ -34,18 +34,16 @@ const Form = ({ FormVisibility, EditTodoList, cancelUpdateList }) => {
     dispatch(updateList(updateData));
   };
 
-  const handleChangeUpdate = (e) => {
-    setUpdateValue(e.target.value);
-  };
-
   return (
     <>
       {FormVisibility === false ? (
         <div className="row ">
           <div className="col-10 ps-0">
             <input
-              className="form-control"
+              id="inputList"
+              className="form-control shadow-none border border-2"
               type="text"
+              placeholder="what to do"
               required
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
@@ -53,8 +51,8 @@ const Form = ({ FormVisibility, EditTodoList, cancelUpdateList }) => {
           </div>
           <div className="col-2 p-0">
             <button
-              className="btn w-100"
-              style={{ backgroundColor: "#6610f2", color: "white" }}
+              id="btn-add"
+              className="btn w-100 border border-2"
               onClick={sendData}
             >
               {" "}
@@ -66,15 +64,17 @@ const Form = ({ FormVisibility, EditTodoList, cancelUpdateList }) => {
         <div className="row">
           <div className="col-10 ps-0">
             <input
+              id="inputUpdate"
               className="form-control"
               type="text"
               required
               value={updateValue || ""}
-              onChange={handleChangeUpdate}
+              onChange={(e) => setUpdateValue(e.target.value)}
             />
           </div>
           <div className="col-2 p-0">
             <button
+              id="btn-update"
               className="btn w-100 ps-1 pe-0 ps-md-0 pe-md-0"
               style={{ backgroundColor: "#6610f2", color: "white" }}
               onClick={updateSubmit}
@@ -87,7 +87,9 @@ const Form = ({ FormVisibility, EditTodoList, cancelUpdateList }) => {
             className="col-12 bg-dangers p-0 mt-4"
             onClick={cancelUpdateList}
           >
-            <button className="btn btn-primary w-100">Back</button>
+            <button id="btn-back" className="btn btn-primary w-100">
+              Back
+            </button>
           </div>
         </div>
       )}

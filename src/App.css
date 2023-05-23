@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Jakarta-Sans-ExtraBold";
+  src: url(./assets/font/static/PlusJakartaSans-ExtraBold.ttf);
+}
+
 .wrapperApp {
   width: fit-content;
 }
@@ -5,13 +10,8 @@
 .wrapperComponent {
   padding: 0 1.5em !important;
 }
-/* 
-@media screen and (min-width: 768px) {
-  .wrapperComponent {
-    width: 50em;
-  }
-} */
 
 .titlePlan {
   margin-bottom: 2.5em;
+  font-family: "Jakarta-Sans-ExtraBold";
 }

@@ -38,36 +38,50 @@ const ButtonStatus = ({ handleFilterTodo }) => {
     setButtonColorAll("#788896");
     setButtonColorActive("#788896");
     setButtonColorCompleted("#1aae9f");
-    handleFilterTodo(todos.filter((items) => items.completed));
+
+    const completed = todos.filter((items) => items.completed);
+
+    if (completed.length == 0) {
+      let NoData = [
+        { id: 999, itemName: "No Completed Task", completed: false },
+      ];
+
+      handleFilterTodo(NoData);
+    } else {
+      handleFilterTodo(todos.filter((items) => items.completed));
+    }
   };
 
   return (
     <div className="row mt-5 p-0 mb-4 gx-5">
       <div className="col-2 bg-primarys pe-0">
         <button
+          id="btn-all"
           className="btn rounded-pill pt-0 pb-0 ps-3 pe-3"
           style={{ backgroundColor: buttonColorAll, color: "white" }}
           onClick={handleButtonAll}
         >
-          All
+          ALL
         </button>
       </div>
       <div className="col-2 bg-warnings w-auto ">
         <button
-          className="btn rounded-pill pt-0 pb-0 ps-2 pe-2 activeButton"
+          id="btn-active"
+          className="btn rounded-pill pt-0 pb-0 ps-3 pe-3 ms-3 ms-sm-3 ms-md-2 ms-lg-0 activeButton"
           style={{ backgroundColor: buttonColorActive, color: "white" }}
           onClick={handleButtonActive}
         >
-          Active
+          ACTIVE
         </button>
       </div>
       <div className="col-2 bg-dangers w-auto ps-1 ">
         <button
-          className="btn rounded-pill pt-0 pb-0 ps-2 pe-2 completedButton"
+          id="btn-completed"
+          className="btn rounded-pill pt-0 pb-0 ps-3 pe-3"
           style={{ backgroundColor: buttonColorCompleted, color: "white" }}
           onClick={handleButtonCompleted}
         >
-          Completed
+          COMPLETED
         </button>
       </div>
     </div>

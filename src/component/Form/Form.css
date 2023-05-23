@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Jakarta-Sans-Medium";
+  src: url(../../assets/font/static/PlusJakartaSans-Medium.ttf);
+}
+
+#inputList,
+#inputUpdate {
+  font-family: "Jakarta-Sans-Medium";
+}
+#btn-add,
+#btn-update {
+  background-color: #6610f2 !important;
+  color: white;
+  border: 2px solid #6610f2 !important;
+  font-family: "Jakarta-Sans-Medium";
+}
+
+#btn-back {
+  font-family: "Jakarta-Sans-Medium";
+}

@@ -1,5 +1,11 @@
+@font-face {
+  font-family: "Jakarta-Sans-Bold";
+  src: url(../../assets/font/static/PlusJakartaSans-Bold.ttf);
+}
+
 .ItemName {
   list-style-type: none;
+  font-family: "Jakarta-Sans-Bold";
 }
 
 .checkBox {

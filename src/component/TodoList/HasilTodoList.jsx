@@ -8,6 +8,7 @@ function TodoList({ handleEditList, FormVisibility, filterTodo }) {
 
   const dispatch = useDispatch();
 
+  console.log(filterTodo);
   return (
     <>
       <ul className="p-0">
@@ -26,9 +27,9 @@ function TodoList({ handleEditList, FormVisibility, filterTodo }) {
                     onChange={() => dispatch(handleCheckBox(item.id))}
                   />
                 </div>
-                <div className="col-9 h-100 pt-1 ps-3 ps-md-2 ps-lg-0 bg-primarys">
+                <div className="col-9 h-100 pt-1 ps-3 ps-md-2 ps-lg-0">
                   <li
-                    className="ItemName bg-successs"
+                    className="ItemName"
                     style={
                       item.completed == true
                         ? { textDecoration: "line-through" }
@@ -42,13 +43,13 @@ function TodoList({ handleEditList, FormVisibility, filterTodo }) {
                 {FormVisibility == false && (
                   <>
                     <div
-                      className="col-1 h-100 bg-primarys pt-1"
+                      className="col-1 h-100 pt-1"
                       onClick={() => handleEditList(item)}
                     >
                       <FaPen />
                     </div>
                     <div
-                      className="col-1 h-100 bg-warnings pt-1"
+                      className="col-1 h-100 pt-1"
                       onClick={() => dispatch(removeList(item.id))}
                     >
                       <FaTrashAlt />
@@ -71,9 +72,9 @@ function TodoList({ handleEditList, FormVisibility, filterTodo }) {
                     onChange={() => dispatch(handleCheckBox(item.id))}
                   />
                 </div>
-                <div className="col-9 h-100 pt-1 ps-3 ps-md-2 ps-lg-0 bg-primarys">
+                <div className="col-9 h-100 pt-1 ps-3 ps-md-2 ps-lg-0">
                   <li
-                    className="ItemName bg-successs"
+                    className="ItemName"
                     style={
                       item.completed == true
                         ? { textDecoration: "line-through" }
@@ -87,13 +88,13 @@ function TodoList({ handleEditList, FormVisibility, filterTodo }) {
                 {FormVisibility == false && (
                   <>
                     <div
-                      className="col-1 h-100 bg-primarys pt-1"
+                      className="col-1 h-100 pt-1"
                       onClick={() => handleEditList(item)}
                     >
                       <FaPen />
                     </div>
                     <div
-                      className="col-1 h-100 bg-warnings pt-1"
+                      className="col-1 h-100 pt-1"
                       onClick={() => dispatch(removeList(item.id))}
                     >
                       <FaTrashAlt />
