@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addList, updateList } from "../../Redux/Action/Action";
 import "./Form.css";
 
 const Form = ({ FormVisibility, EditTodoList, cancelUpdateList }) => {
   const [inputVal, setInputVal] = useState("");
-  // const [status, setStatus] = useState(false);
+
   const [updateValue, setUpdateValue] = useState("");
 
   const [id, setId] = useState(4);
 
   const dispatch = useDispatch();
-  // console.log(EditTodoList);
 
   useEffect(() => {
     setUpdateValue(EditTodoList.itemName);

@@ -26,21 +26,3 @@ export const handleCheckBox = (id) => {
     id: id,
   };
 };
-
-// Button Cathergory
-export const AllList = () => {
-  return {
-    type: "AllList",
-  };
-};
-
-export const Activelist = () => {
-  return {
-    type: "ActiveList",
-  };
-};
-export const CompletedList = () => {
-  return {
-    type: "CompletedList",
-  };
-};

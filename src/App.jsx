@@ -12,10 +12,6 @@ function App() {
 
   const [filterTodo, setFilterTodo] = useState([]);
 
-  // const [propsInputVal, setPropsInputVal] = useState {
-
-  // }
-
   const handleFilterTodo = (filter) => {
     setFilterTodo(filter);
   };
@@ -40,10 +36,7 @@ function App() {
           EditTodoList={editTodo}
           cancelUpdateList={cancelUpdateList}
         />
-        <ButtonStatus
-          handleFilterTodo={handleFilterTodo}
-          filterTodo={filterTodo}
-        />
+        <ButtonStatus handleFilterTodo={handleFilterTodo} />
         <TodoList
           handleEditList={handleEditList}
           FormVisibility={formVisibility}

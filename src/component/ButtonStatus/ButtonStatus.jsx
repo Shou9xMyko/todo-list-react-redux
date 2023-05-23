@@ -1,25 +1,23 @@
 import "./ButtonStatus.css";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  AllList,
-  Activelist,
-  CompletedList,
-  addList,
-} from "../../Redux/Action/Action";
+import { useSelector } from "react-redux";
 
-const ButtonStatus = ({ handleFilterTodo, filterTodo }) => {
+const ButtonStatus = ({ handleFilterTodo }) => {
   const todos = useSelector((state) => state.Reducers);
   const [buttonColorAll, setButtonColorAll] = useState("#1aae9f");
   const [buttonColorActive, setButtonColorActive] = useState("#788896");
   const [buttonColorCompleted, setButtonColorCompleted] = useState("#788896");
 
-  const dispatch = useDispatch();
-
-  console.log(filterTodo);
+  const [conditionalFilter, setConditionalFilter] = useState("");
 
   useEffect(() => {
-    handleFilterTodo(todos);
+    if (conditionalFilter == "activeFilter") {
+      handleFilterTodo(todos.filter((item) => item.completed == false));
+    } else if (conditionalFilter == "completedFilter") {
+      handleFilterTodo(todos.filter((items) => items.completed));
+    } else {
+      handleFilterTodo(todos);
+    }
   }, [todos]);
 
   const handleButtonAll = () => {
@@ -27,25 +25,20 @@ const ButtonStatus = ({ handleFilterTodo, filterTodo }) => {
     setButtonColorActive("#788896");
     setButtonColorCompleted("#788896");
     handleFilterTodo(todos);
-    dispatch(AllList());
   };
   const handleButtonActive = () => {
-    // console.log(todos);
-    // console.log(filterTodo);
+    setConditionalFilter("activeFilter");
     setButtonColorAll("#788896");
     setButtonColorActive("#1aae9f");
     setButtonColorCompleted("#788896");
     handleFilterTodo(todos.filter((item) => item.completed == false));
-    dispatch(Activelist());
-    // handleFilterTodo(todos);
   };
   const handleButtonCompleted = () => {
+    setConditionalFilter("completedFilter");
     setButtonColorAll("#788896");
     setButtonColorActive("#788896");
     setButtonColorCompleted("#1aae9f");
     handleFilterTodo(todos.filter((items) => items.completed));
-    dispatch(CompletedList());
-    // handleFilterTodo(todos);
   };
 
   return (

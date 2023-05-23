@@ -2,26 +2,14 @@ import "./HasilTodoList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { removeList, handleCheckBox } from "../../Redux/Action/Action";
 import { FaPen, FaTrashAlt } from "react-icons/fa";
-import { useEffect } from "react";
 
 function TodoList({ handleEditList, FormVisibility, filterTodo }) {
   const todoData = useSelector((state) => state.Reducers);
 
   const dispatch = useDispatch();
 
-  // todoData?.map((items) => {
-  //   console.log(items);
-  // });
-
-  // console.log(filterTodo);
-
-  // useEffect(() => {
-  //   console.log(todoData);
-  // }, [todoData]);
-
   return (
     <>
-      {/* {console.log(filterTodo.length)} */}
       <ul className="p-0">
         {filterTodo.length == 0
           ? todoData?.map((item) => (
