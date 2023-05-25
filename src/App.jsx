@@ -13,10 +13,6 @@ function App() {
   const [filterTodo, setFilterTodo] = useState([]);
 
   const handleFilterTodo = (filter) => {
-    const checkSameData = [];
-    checkSameData.push(filter);
-    console.log(checkSameData);
-
     let notTaskCompleted = [
       {
         id: 404,
@@ -39,7 +35,7 @@ function App() {
   };
 
   return (
-    <div className="wrapperApp bg-dangers mt-5">
+    <div className="wrapperApp mt-5">
       <h1 className="fw-bold titlePlan text-center">
         What`s the plan for today ?
       </h1>
@@ -59,6 +55,9 @@ function App() {
           filterTodo={filterTodo}
         />
       </div>
+      <p className="author text-center mt-5">
+        Created With 💖 By Miko Firnando
+      </p>
     </div>
   );
 }

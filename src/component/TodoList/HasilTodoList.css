@@ -12,6 +12,17 @@
   padding: 0.8em 0.9em;
 }
 
+.form-check-input {
+  box-shadow: none !important;
+  border-color: #adb5bd !important;
+}
+
+.form-check-input:checked {
+  background-color: #6610f2 !important;
+  box-shadow: none !important;
+  border: none;
+}
+
 .showNotCompletedText {
   font-family: "Jakarta-Sans-Bold";
 }

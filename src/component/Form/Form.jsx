@@ -83,10 +83,7 @@ const Form = ({ FormVisibility, EditTodoList, cancelUpdateList }) => {
               Update
             </button>
           </div>
-          <div
-            className="col-12 bg-dangers p-0 mt-4"
-            onClick={cancelUpdateList}
-          >
+          <div className="col-12 p-0 mt-4" onClick={cancelUpdateList}>
             <button id="btn-back" className="btn btn-primary w-100">
               Back
             </button>
