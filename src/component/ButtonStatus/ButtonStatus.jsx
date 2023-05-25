@@ -2,7 +2,7 @@ import "./ButtonStatus.css";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-const ButtonStatus = ({ handleFilterTodo }) => {
+const ButtonStatus = ({ handleFilterTodo, filterTodo }) => {
   const todos = useSelector((state) => state.Reducers);
   const [buttonColorAll, setButtonColorAll] = useState("#1aae9f");
   const [buttonColorActive, setButtonColorActive] = useState("#788896");
@@ -38,18 +38,7 @@ const ButtonStatus = ({ handleFilterTodo }) => {
     setButtonColorAll("#788896");
     setButtonColorActive("#788896");
     setButtonColorCompleted("#1aae9f");
-
-    const completed = todos.filter((items) => items.completed);
-
-    if (completed.length == 0) {
-      let NoData = [
-        { id: 999, itemName: "No Completed Task", completed: false },
-      ];
-
-      handleFilterTodo(NoData);
-    } else {
-      handleFilterTodo(todos.filter((items) => items.completed));
-    }
+    handleFilterTodo(todos.filter((items) => items.completed));
   };
 
   return (
