@@ -10,9 +10,21 @@ const ButtonStatus = ({ handleFilterTodo, filterTodo }) => {
 
   const [conditionalFilter, setConditionalFilter] = useState("");
 
+  let notActiveTask = [
+    {
+      id: 404,
+      itemName: "No active task!",
+      completed: false,
+    },
+  ];
+
   useEffect(() => {
     if (conditionalFilter == "activeFilter") {
-      handleFilterTodo(todos.filter((item) => item.completed == false));
+      const activeFilter = todos.filter((item) => item.completed == false);
+      activeFilter.length == 0
+        ? handleFilterTodo(notActiveTask)
+        : handleFilterTodo(activeFilter);
+      // handleFilterTodo(todos.filter((item) => item.completed == false));
     } else if (conditionalFilter == "completedFilter") {
       handleFilterTodo(todos.filter((items) => items.completed));
     } else {
@@ -21,6 +33,7 @@ const ButtonStatus = ({ handleFilterTodo, filterTodo }) => {
   }, [todos]);
 
   const handleButtonAll = () => {
+    // console.log(todos);
     setButtonColorAll("#1aae9f");
     setButtonColorActive("#788896");
     setButtonColorCompleted("#788896");
@@ -31,7 +44,12 @@ const ButtonStatus = ({ handleFilterTodo, filterTodo }) => {
     setButtonColorAll("#788896");
     setButtonColorActive("#1aae9f");
     setButtonColorCompleted("#788896");
-    handleFilterTodo(todos.filter((item) => item.completed == false));
+    const activeFilter = todos.filter((item) => item.completed == false);
+    activeFilter.length == 0
+      ? handleFilterTodo(notActiveTask)
+      : handleFilterTodo(todos.filter((item) => item.completed == false));
+
+    // handleFilterTodo(todos.filter((item) => item.completed == false));
   };
   const handleButtonCompleted = () => {
     setConditionalFilter("completedFilter");

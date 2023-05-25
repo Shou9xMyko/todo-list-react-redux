@@ -8,12 +8,13 @@ const Reducers = (state = dataItem, action) => {
     case "removeData":
       return state.filter((data) => data.id != action.id);
     case "CheckBoxTodo":
-      const todoArray = [];
-      state.map((items) => {
+      // const todoArray = [];
+      const todoArray = state.map((items) => {
         if (items.id == action.id) {
-          items.completed = !items.completed;
+          // items.completed = !items.completed;
+          return { ...items, completed: !items.completed };
         }
-        todoArray.push(items);
+        return items;
       });
       return todoArray;
     case "updateData":

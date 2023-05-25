@@ -11,3 +11,7 @@
 .checkBox {
   padding: 0.8em 0.9em;
 }
+
+.showNotCompletedText {
+  font-family: "Jakarta-Sans-Bold";
+}

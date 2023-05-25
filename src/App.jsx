@@ -3,7 +3,7 @@ import TodoList from "./component/TodoList/HasilTodoList";
 import Form from "./component/Form/Form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ButtonStatus from "./component/ButtonStatus/ButtonStatus";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function App() {
   const [formVisibility, setFormVisibility] = useState(false);
@@ -13,7 +13,20 @@ function App() {
   const [filterTodo, setFilterTodo] = useState([]);
 
   const handleFilterTodo = (filter) => {
-    setFilterTodo(filter);
+    const checkSameData = [];
+    checkSameData.push(filter);
+    console.log(checkSameData);
+
+    let notTaskCompleted = [
+      {
+        id: 404,
+        itemName: "No task completed!",
+        completed: false,
+      },
+    ];
+    filter.length == 0
+      ? setFilterTodo(notTaskCompleted)
+      : setFilterTodo(filter);
   };
 
   const handleEditList = (data) => {

@@ -1,5 +1,4 @@
 export const addList = (id, itemName, completed) => {
-  console.log("data udah kekirim");
   return {
     type: "addData",
     data: { id, itemName, completed },
