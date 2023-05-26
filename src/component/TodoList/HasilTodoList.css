@@ -21,7 +21,7 @@
 .form-check-input:checked {
   background-color: #6610f2 !important;
   box-shadow: none !important;
-  /* border-color: #6610f2 !important; */
+  border-color: #6610f2 !important;
 }
 
 .showNotCompletedText {
