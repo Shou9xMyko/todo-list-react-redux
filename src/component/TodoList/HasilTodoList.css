@@ -7,20 +7,21 @@
   list-style-type: none;
   font-family: "Jakarta-Sans-Bold";
 }
-
+/* 
 .checkBox {
   padding: 0.8em 0.9em;
-}
+} */
 
 .form-check-input {
   box-shadow: none !important;
   border-color: #adb5bd !important;
+  padding: 0.8em 0.9em !important;
 }
 
 .form-check-input:checked {
   background-color: #6610f2 !important;
   box-shadow: none !important;
-  border: none;
+  /* border-color: #6610f2 !important; */
 }
 
 .showNotCompletedText {
