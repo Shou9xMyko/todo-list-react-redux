@@ -62,7 +62,7 @@ const Form = ({ FormVisibility, EditTodoList, cancelUpdateList }) => {
         </div>
       ) : (
         <div className="row">
-          <div className="col-10 ps-0">
+          <div className="col-9 col-sm-10 ps-0">
             <input
               id="inputUpdate"
               className="form-control"
@@ -72,10 +72,10 @@ const Form = ({ FormVisibility, EditTodoList, cancelUpdateList }) => {
               onChange={(e) => setUpdateValue(e.target.value)}
             />
           </div>
-          <div className="col-2 p-0">
+          <div className="col-3 col-sm-2 p-0">
             <button
               id="btn-update"
-              className="btn w-100 ps-1 pe-0 ps-md-0 pe-md-0"
+              className="btn w-100 ps-0 pe-0 ps-md-0 pe-md-0"
               style={{ backgroundColor: "#6610f2", color: "white" }}
               onClick={updateSubmit}
             >

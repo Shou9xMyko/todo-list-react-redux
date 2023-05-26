@@ -73,7 +73,7 @@ const ButtonStatus = ({ handleFilterTodo }) => {
       <div className="col-2 w-auto ">
         <button
           id="btn-active"
-          className="btn rounded-pill ms-3 ms-sm-3 ms-md-2 ms-lg-0 activeButton"
+          className="btn rounded-pill ms-4 ms-sm-3 ms-md-2 ms-lg-0 activeButton"
           style={{ backgroundColor: buttonColorActive, color: "white" }}
           onClick={handleButtonActive}
         >
