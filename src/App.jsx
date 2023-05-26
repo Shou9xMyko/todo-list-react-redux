@@ -13,16 +13,14 @@ function App() {
   const [filterTodo, setFilterTodo] = useState([]);
 
   const handleFilterTodo = (filter) => {
-    let notTaskCompleted = [
+    const noTask = [
       {
         id: 404,
-        itemName: "No task completed!",
+        itemName: "No task to do !",
         completed: false,
       },
     ];
-    filter.length == 0
-      ? setFilterTodo(notTaskCompleted)
-      : setFilterTodo(filter);
+    filter.length == 0 ? setFilterTodo(noTask) : setFilterTodo(filter);
   };
 
   const handleEditList = (data) => {

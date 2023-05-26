@@ -2,7 +2,7 @@ import "./ButtonStatus.css";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-const ButtonStatus = ({ handleFilterTodo }) => {
+const ButtonStatus = ({ handleFilterTodo, filterTodo }) => {
   const todos = useSelector((state) => state.Reducers);
   const [buttonColorAll, setButtonColorAll] = useState("#1aae9f");
   const [buttonColorActive, setButtonColorActive] = useState("#788896");
@@ -10,10 +10,18 @@ const ButtonStatus = ({ handleFilterTodo }) => {
 
   const [conditionalFilter, setConditionalFilter] = useState("");
 
-  let notActiveTask = [
+  const notActiveTask = [
     {
       id: 404,
       itemName: "No active task!",
+      completed: false,
+    },
+  ];
+
+  const notTaskCompleted = [
+    {
+      id: 404,
+      itemName: "No task completed!",
       completed: false,
     },
   ];
@@ -25,7 +33,10 @@ const ButtonStatus = ({ handleFilterTodo }) => {
         ? handleFilterTodo(notActiveTask)
         : handleFilterTodo(activeFilter);
     } else if (conditionalFilter == "completedFilter") {
-      handleFilterTodo(todos.filter((items) => items.completed));
+      const completedFilter = todos.filter((items) => items.completed);
+      completedFilter.length == 0
+        ? handleFilterTodo(notTaskCompleted)
+        : handleFilterTodo(completedFilter);
     } else {
       handleFilterTodo(todos);
     }
@@ -55,7 +66,11 @@ const ButtonStatus = ({ handleFilterTodo }) => {
     setButtonColorAll("#788896");
     setButtonColorActive("#788896");
     setButtonColorCompleted("#1aae9f");
-    handleFilterTodo(todos.filter((items) => items.completed));
+    const completedFilter = todos.filter((items) => items.completed);
+    completedFilter.length == 0
+      ? handleFilterTodo(notTaskCompleted)
+      : handleFilterTodo(todos.filter((items) => items.completed));
+    // handleFilterTodo(todos.filter((items) => items.completed));
   };
 
   return (
